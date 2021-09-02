@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tyats_web/ui/home_screen.dart';
+import 'package:tyats_web/ui/phone_body/phone_body.dart';
 
 enum MenuActions {
   linkedin,
@@ -8,7 +10,7 @@ enum MenuActions {
 }
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key, this.title}) : super(key: key);
+  HomeScreen({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -18,11 +20,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Color _phoneColor = Colors.black87;
+  MenuActions _actionToPass = MenuActions.projects;
 
   @override
   Widget build(BuildContext context) {
     double _phoneHeight = MediaQuery.of(context).size.height * 0.8;
     double _phoneWidth = MediaQuery.of(context).size.width * 0.5;
+
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent.shade200,
       body: Center(
@@ -57,20 +61,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
                   children: [
-                    SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Image.network(
-                          'https://portfolium1.cloudimg.io/s/crop/192x192/https://cdn.portfolium.com/ugcs3%2Favatar%2F9A1773AD-1F85-4322-2DC3-624E08F24D42-0-xKXrfFsi-JV-pl2eZkIOEQB7zWw3M92eZXsgd6k3jjoGjcY6V85pwuwDVB7.jpg',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.network(
+                              'https://portfolium1.cloudimg.io/s/crop/192x192/https://cdn.portfolium.com/ugcs3%2Favatar%2F9A1773AD-1F85-4322-2DC3-624E08F24D42-0-xKXrfFsi-JV-pl2eZkIOEQB7zWw3M92eZXsgd6k3jjoGjcY6V85pwuwDVB7.jpg',
+                            ),
+                          ),
                         ),
-                      ),
+                        hamburger(context),
+                      ],
                     ),
-                    hamburger(context),
+                    PhoneBody(
+                      action: _actionToPass,
+                    ),
                   ],
                 ),
               ),
@@ -107,25 +118,25 @@ class _HomeScreenState extends State<HomeScreen> {
           case MenuActions.projects:
             {
               print(result);
-              // setState(() {
-              //   actionToPass = MenuActions.about;
-              // });
+              setState(() {
+                _actionToPass = MenuActions.projects;
+              });
             }
             break;
           case MenuActions.resume:
             {
               print(result);
-              // setState(() {
-              //   actionToPass = MenuActions.pool;
-              // });
+              setState(() {
+                _actionToPass = MenuActions.resume;
+              });
             }
             break;
           case MenuActions.linkedin:
             {
               print(result);
-              // setState(() {
-              //   actionToPass = MenuActions.guide;
-              // });
+              setState(() {
+                _actionToPass = MenuActions.linkedin;
+              });
             }
             break;
         }
