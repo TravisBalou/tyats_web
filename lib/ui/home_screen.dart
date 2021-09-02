@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tyats_web/models/dart/ui_models.dart';
 import 'package:tyats_web/ui/home_screen.dart';
 import 'package:tyats_web/ui/phone_body/phone_body.dart';
+import 'package:provider/provider.dart';
 
 enum MenuActions {
   linkedin,
@@ -29,63 +31,68 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent.shade200,
-      body: Center(
-        child: Container(
-          height: _phoneHeight,
-          width: _phoneWidth,
-          clipBehavior: Clip.none,
-          decoration: ShapeDecoration(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: _phoneColor, width: 20),
-              borderRadius: BorderRadius.all(Radius.circular(40)),
+      body: Provider<PhoneSize>(
+        create: (context) {
+          return PhoneSize(width: _phoneWidth, height: _phoneHeight);
+        },
+        child: Center(
+          child: Container(
+            height: _phoneHeight,
+            width: _phoneWidth,
+            clipBehavior: Clip.none,
+            decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: _phoneColor, width: 20),
+                borderRadius: BorderRadius.all(Radius.circular(40)),
+              ),
             ),
-          ),
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  clipBehavior: Clip.none,
-                  height: MediaQuery.of(context).size.height * 0.03,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  decoration: ShapeDecoration(
-                    color: _phoneColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        bottom: Radius.circular(15),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    clipBehavior: Clip.none,
+                    height: MediaQuery.of(context).size.height * 0.03,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    decoration: ShapeDecoration(
+                      color: _phoneColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(15),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          height: 50,
-                          width: 50,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: Image.network(
-                              'https://portfolium1.cloudimg.io/s/crop/192x192/https://cdn.portfolium.com/ugcs3%2Favatar%2F9A1773AD-1F85-4322-2DC3-624E08F24D42-0-xKXrfFsi-JV-pl2eZkIOEQB7zWw3M92eZXsgd6k3jjoGjcY6V85pwuwDVB7.jpg',
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 50,
+                            width: 50,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.network(
+                                'https://portfolium1.cloudimg.io/s/crop/192x192/https://cdn.portfolium.com/ugcs3%2Favatar%2F9A1773AD-1F85-4322-2DC3-624E08F24D42-0-xKXrfFsi-JV-pl2eZkIOEQB7zWw3M92eZXsgd6k3jjoGjcY6V85pwuwDVB7.jpg',
+                              ),
                             ),
                           ),
-                        ),
-                        hamburger(context),
-                      ],
-                    ),
-                    PhoneBody(
-                      action: _actionToPass,
-                    ),
-                  ],
+                          hamburger(context),
+                        ],
+                      ),
+                      PhoneBody(
+                        action: _actionToPass,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tyats_web/models/dart/ui_models.dart';
 
 class ProjectBody extends StatefulWidget {
   const ProjectBody({Key? key}) : super(key: key);
@@ -10,6 +12,8 @@ class ProjectBody extends StatefulWidget {
 class _ProjectBodyState extends State<ProjectBody> {
   @override
   Widget build(BuildContext context) {
+    PhoneSize phoneSize = context.watch<PhoneSize>();
+    print(phoneSize.height.toString());
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
