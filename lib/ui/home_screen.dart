@@ -31,10 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent.shade200,
-      body: Provider<PhoneSize>(
-        create: (context) {
-          return PhoneSize(width: _phoneWidth, height: _phoneHeight);
-        },
+      body: Provider.value(
+        value: PhoneSize(width: _phoneWidth, height: _phoneHeight),
+        // create: (context) {
+        //   return PhoneSize(width: _phoneWidth, height: _phoneHeight);
+        // },
         child: Center(
           child: Container(
             height: _phoneHeight,
