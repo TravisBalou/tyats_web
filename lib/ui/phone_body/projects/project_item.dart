@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 enum ProjectName {
   Balou,
@@ -17,46 +18,79 @@ class ProjectItem extends StatelessWidget {
           context,
           'Balou',
           'balou_hero.jpg',
+          'https://www.balouapp.com',
         );
         break;
       case ProjectName.BalouBids:
-        return _projectItem(context, 'BalouBids', 'bids_hero.png');
+        return _projectItem(
+          context,
+          'Balou Bids',
+          'bids_hero.png',
+          'https://www.balouapp.com',
+        );
         break;
       case ProjectName.Fyto:
         return _projectItem(
           context,
           'Fytoborous',
           'fyto_hero.png',
+          'https://fytoboros.com/#/',
         );
         break;
     }
   }
 
-  Widget _projectItem(BuildContext context, String name, String imageName) {
-    return Container(
-      height: 200,
-      color: Colors.white10,
-      child: Row(
-        children: [
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              child: Image.asset(
-                imageName,
-                fit: BoxFit.fitHeight,
+  Widget _projectItem(
+      BuildContext context, String name, String imageName, String websiteURL) {
+    return Column(
+      children: [
+        Container(
+          height: 200,
+          color: Colors.white10,
+          child: Row(
+            children: [
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  child: Image.asset(
+                    imageName,
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
-            ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () => html.window.open(websiteURL, 'new tab'),
+                    icon: Icon(Icons.web),
+                    label: Text('Website'),
+                  ),
+                ],
+              ),
+            ],
           ),
-          SizedBox(
-            width: 10,
-          ),
-          Text(
-            name,
-          ),
-        ],
-      ),
+        ),
+        Divider(
+          thickness: 2,
+        ),
+      ],
     );
   }
 }

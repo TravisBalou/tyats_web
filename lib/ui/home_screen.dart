@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double _phoneHeight = MediaQuery.of(context).size.height * 0.8;
     double _phoneWidth = MediaQuery.of(context).size.width * 0.5;
-
+    PhoneSize _phoneSize = PhoneSize(width: _phoneWidth, height: _phoneHeight);
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent.shade200,
       body: Provider.value(
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // },
         child: Center(
           child: Container(
-            height: _phoneHeight,
+            height: 812,
             width: _phoneWidth,
             clipBehavior: Clip.none,
             decoration: ShapeDecoration(
@@ -78,8 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 50,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
-                              child: Image.network(
-                                'https://portfolium1.cloudimg.io/s/crop/192x192/https://cdn.portfolium.com/ugcs3%2Favatar%2F9A1773AD-1F85-4322-2DC3-624E08F24D42-0-xKXrfFsi-JV-pl2eZkIOEQB7zWw3M92eZXsgd6k3jjoGjcY6V85pwuwDVB7.jpg',
+                              child: Image.asset(
+                                'headshot.jpeg',
+                                fit: BoxFit.fitWidth,
+                                alignment: Alignment.center,
                               ),
                             ),
                           ),

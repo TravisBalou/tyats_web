@@ -13,36 +13,43 @@ class ProjectBody extends StatefulWidget {
 class _ProjectBodyState extends State<ProjectBody> {
   @override
   Widget build(BuildContext context) {
-    PhoneSize phoneSize = context.watch<PhoneSize>();
-    print(phoneSize.height.toString());
+    //PhoneSize phoneSize = context.watch<PhoneSize>();
+    //print(phoneSize.height.toString());
     return Column(
       //mainAxisSize: MainAxisSize.max,
       children: [
-        Text('Projects'),
+        Text(
+          'Projects',
+          style: TextStyle(fontSize: 18),
+        ),
         SizedBox(
           height: 10,
         ),
-        Container(
-          height: phoneSize.height * 0.8,
-          width: phoneSize.width,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProjectItem(
-                  projectName: ProjectName.Balou,
-                ),
-                ProjectItem(
-                  projectName: ProjectName.BalouBids,
-                ),
-                ProjectItem(
-                  projectName: ProjectName.Fyto,
-                ),
-              ],
+        Consumer<PhoneSize>(
+            builder: (BuildContext context, PhoneSize phoneSize, child) {
+          print(phoneSize.height.toString());
+          return Container(
+            height: phoneSize.height * 0.8,
+            width: phoneSize.width,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ProjectItem(
+                    projectName: ProjectName.Balou,
+                  ),
+                  ProjectItem(
+                    projectName: ProjectName.BalouBids,
+                  ),
+                  ProjectItem(
+                    projectName: ProjectName.Fyto,
+                  ),
+                ],
+              ),
             ),
-          ),
-        )
+          );
+        })
       ],
     );
   }
