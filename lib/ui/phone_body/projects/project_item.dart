@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tyats_web/ui/phone_body/projects/project_stack.dart';
 import 'dart:html' as html;
+import 'package:tyats_web/utilities/responsive_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum ProjectName {
   Balou,
@@ -16,6 +19,7 @@ class ProjectItem extends StatelessWidget {
       case ProjectName.Balou:
         return _projectItem(
           context,
+          ProjectName.Balou,
           'Balou',
           'balou_hero.jpg',
           'https://www.balouapp.com',
@@ -24,6 +28,7 @@ class ProjectItem extends StatelessWidget {
       case ProjectName.BalouBids:
         return _projectItem(
           context,
+          ProjectName.BalouBids,
           'Balou Bids',
           'bids_hero.png',
           'https://www.balouapp.com',
@@ -32,6 +37,7 @@ class ProjectItem extends StatelessWidget {
       case ProjectName.Fyto:
         return _projectItem(
           context,
+          ProjectName.Fyto,
           'Fytoborous',
           'fyto_hero.png',
           'https://fytoboros.com/#/',
@@ -40,8 +46,8 @@ class ProjectItem extends StatelessWidget {
     }
   }
 
-  Widget _projectItem(
-      BuildContext context, String name, String imageName, String websiteURL) {
+  Widget _projectItem(BuildContext context, ProjectName _project, String name,
+      String imageName, String websiteURL) {
     return Column(
       children: [
         Container(
@@ -50,8 +56,8 @@ class ProjectItem extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                height: 100,
-                width: 100,
+                height: 125,
+                width: 125,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: Image.asset(
@@ -79,9 +85,13 @@ class ProjectItem extends StatelessWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () => html.window.open(websiteURL, 'new tab'),
-                    icon: Icon(Icons.web),
+                    icon: Icon(FontAwesomeIcons.globe),
                     label: Text('Website'),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ProjectStack(project: _project),
                 ],
               ),
             ],

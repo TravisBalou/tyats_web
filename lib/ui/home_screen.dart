@@ -28,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     double _phoneHeight = MediaQuery.of(context).size.height * 0.8;
     double _phoneWidth = MediaQuery.of(context).size.width * 0.5;
+    print(_phoneWidth);
+
     PhoneSize _phoneSize = PhoneSize(width: _phoneWidth, height: _phoneHeight);
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent.shade200,
@@ -39,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(
           child: Container(
             height: 812,
-            width: _phoneWidth,
+            width: _setPhoneWidth(_phoneWidth),
             clipBehavior: Clip.none,
             decoration: ShapeDecoration(
               color: Colors.white,
@@ -100,6 +102,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  double _setPhoneWidth(double currentWidth) {
+    return currentWidth > 366 ? currentWidth : 366;
   }
 
   Widget hamburger(BuildContext context) {
