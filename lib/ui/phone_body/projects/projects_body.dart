@@ -20,7 +20,7 @@ class _ProjectBodyState extends State<ProjectBody> {
       children: [
         Text(
           'Projects',
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: 10,
@@ -29,7 +29,7 @@ class _ProjectBodyState extends State<ProjectBody> {
             builder: (BuildContext context, PhoneSize phoneSize, child) {
           print(phoneSize.height.toString());
           return Container(
-            height: phoneSize.height * 0.8,
+            height: phoneSize.height * 0.78,
             width: phoneSize.width,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,

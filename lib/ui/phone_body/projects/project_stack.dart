@@ -16,16 +16,25 @@ class ProjectStack extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(FontAwesomeIcons.swift),
+                Icon(
+                  FontAwesomeIcons.swift,
+                  size: 20,
+                ),
                 SizedBox(
                   width: 15,
                 ),
                 Text('Swift'),
               ],
             ),
+            SizedBox(
+              height: 5,
+            ),
             Row(
               children: [
-                Icon(FontAwesomeIcons.accusoft),
+                Icon(
+                  FontAwesomeIcons.accusoft,
+                  size: 20,
+                ),
                 SizedBox(
                   width: 15,
                 ),
@@ -38,7 +47,10 @@ class ProjectStack extends StatelessWidget {
       case ProjectName.BalouBids:
         return Row(
           children: [
-            Icon(FontAwesomeIcons.accusoft),
+            Icon(
+              FontAwesomeIcons.accusoft,
+              size: 20,
+            ),
             SizedBox(
               width: 15,
             ),
@@ -52,16 +64,25 @@ class ProjectStack extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(FontAwesomeIcons.accusoft),
+                Icon(
+                  FontAwesomeIcons.accusoft,
+                  size: 20,
+                ),
                 SizedBox(
                   width: 15,
                 ),
                 Text('Dart/Flutter'),
               ],
             ),
+            SizedBox(
+              height: 5,
+            ),
             Row(
               children: [
-                Icon(FontAwesomeIcons.moneyBill),
+                Icon(
+                  FontAwesomeIcons.moneyBill,
+                  size: 20,
+                ),
                 SizedBox(
                   width: 15,
                 ),
