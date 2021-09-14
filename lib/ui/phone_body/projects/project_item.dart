@@ -72,7 +72,7 @@ class _ProjectItemState extends State<ProjectItem> {
     return Column(
       children: [
         Container(
-          height: 200,
+          height: 180,
           color: Colors.white10,
           child: Row(
             children: [
@@ -124,7 +124,11 @@ class _ProjectItemState extends State<ProjectItem> {
                         print(_showExpanded);
                       });
                     },
-                    child: Text('Read More'),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.green),
+                    ),
+                    child: Text('More'),
                   ),
                 ],
               ),
