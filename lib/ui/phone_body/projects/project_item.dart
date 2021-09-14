@@ -27,36 +27,48 @@ class _ProjectItemState extends State<ProjectItem> {
     switch (widget.projectName) {
       case ProjectName.Balou:
         return _projectItem(
-          context,
-          ProjectName.Balou,
-          'Balou',
-          'balou_hero.jpg',
-          'https://www.balouapp.com',
+          context: context,
+          project: ProjectName.Balou,
+          name: 'Balou',
+          imageName: 'balou_hero.jpg',
+          websiteURL: 'https://www.balouapp.com',
+          description:
+              'Balou was developed to allow conference/trade show exhibitors to reach a broader audience at the event. The goal of Balou is to connect attendees with exhibitors through the exhibitors giveaways, contest, and promotions. We aimed to create a simple and clean interface while allowing exhibitors to display all of the information relevant to them. Balou is the first application I released and was initially written in Swift, later to by converted into Flutter and released on Android. Balou is designed for offline use and syncs data from our servers to an on-device data base.',
         );
         break;
       case ProjectName.BalouBids:
         return _projectItem(
-          context,
-          ProjectName.BalouBids,
-          'Balou Bids',
-          'bids_hero.png',
-          'https://www.balouapp.com',
+          context: context,
+          project: ProjectName.BalouBids,
+          name: 'Balou Bids',
+          imageName: 'bids_hero.png',
+          websiteURL: 'https://www.balouapp.com',
+          description:
+              'Balou Bids builds off the work of the core Balou app to provide an elegant solution to silent auctions. Balou Bids handles the entire silent auction process including bidding and payment. The application is written in Flutter with custom packages built in Swift/Kotlin to allow for integration of Apple Sign in and Braintree payments. Balou Bids will be released initially on iOS and Android, later to be released as a webapp.',
         );
         break;
       case ProjectName.Fyto:
         return _projectItem(
-          context,
-          ProjectName.Fyto,
-          'Fytoborous',
-          'fyto_hero.png',
-          'https://fytoboros.com/#/',
+          context: context,
+          project: ProjectName.Fyto,
+          name: 'Fytoborous',
+          imageName: 'fyto_hero.png',
+          websiteURL: 'https://fytoboros.com/#/',
+          description:
+              'Fytoborous is a new startup seeking to improve plant based meat products. The project is relying heavily on the Cardano Blockchain to improve business operations as well as raise capital. For Fytoborous, I have setup a Cardano Stake Pool to generate passive income for the project as well as working on an NFT minting service utilizing the Cardano Block Chain. The Fytoborous website is written in Flutter and is my first venture into using Flutter for a website.',
         );
         break;
     }
   }
 
-  Widget _projectItem(BuildContext context, ProjectName _project, String name,
-      String imageName, String websiteURL) {
+  Widget _projectItem({
+    required BuildContext context,
+    required ProjectName project,
+    required String name,
+    required String imageName,
+    required String websiteURL,
+    required String description,
+  }) {
     return Column(
       children: [
         Container(
@@ -120,7 +132,7 @@ class _ProjectItemState extends State<ProjectItem> {
           ),
         ),
         ExpandedSection(
-          child: Text('Test'),
+          child: Text(description),
           expand: _showExpanded,
         ),
         Divider(
