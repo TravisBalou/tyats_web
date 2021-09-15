@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tyats_web/ui/phone_body/resume/resume_detail_entries.dart';
 import 'package:tyats_web/utilities/expanded_setion.dart';
 
 enum ResumeEntry {
@@ -27,11 +28,13 @@ class _ResumeItemState extends State<ResumeItem> {
         return buildResumeItem(
           context: context,
           company: 'Humetrix',
-          logoName: 'TODO',
+          logoName: 'hum_logo.jpg',
           title: 'Program Manager',
           startDate: 'April 2015',
           endDate: 'July 2021',
-          details: 'TODO',
+          details: ResumeEntries(
+            resumeEntry: ResumeEntry.humetrix,
+          ),
           webURL: 'TODO',
         );
         break;
@@ -39,11 +42,13 @@ class _ResumeItemState extends State<ResumeItem> {
         return buildResumeItem(
           context: context,
           company: 'Balou',
-          logoName: 'TODO',
+          logoName: 'balou_logo.png',
           title: 'Co-Founder, COO',
           startDate: 'May 2018',
           endDate: 'Present',
-          details: 'TODO',
+          details: ResumeEntries(
+            resumeEntry: ResumeEntry.balou,
+          ),
           webURL: 'TODO',
         );
         break;
@@ -51,11 +56,13 @@ class _ResumeItemState extends State<ResumeItem> {
         return buildResumeItem(
           context: context,
           company: 'Van Scoyoc Associates',
-          logoName: 'TODO',
+          logoName: 'vsa-logo.png',
           title: 'Intern',
           startDate: 'June 2012',
           endDate: 'August 2012',
-          details: 'TODO',
+          details: ResumeEntries(
+            resumeEntry: ResumeEntry.vanScoyoc,
+          ),
           webURL: 'TODO',
         );
         break;
@@ -63,11 +70,13 @@ class _ResumeItemState extends State<ResumeItem> {
         return buildResumeItem(
           context: context,
           company: 'U.S Congresswoman Susan Davis',
-          logoName: 'TODO',
+          logoName: 'hous_logo.png',
           title: 'Congressional Intern',
           startDate: 'January 2012',
           endDate: 'June 2012',
-          details: 'TODO',
+          details: ResumeEntries(
+            resumeEntry: ResumeEntry.susanDavis,
+          ),
           webURL: 'TODO',
         );
         break;
@@ -81,7 +90,7 @@ class _ResumeItemState extends State<ResumeItem> {
     required String title,
     required String startDate,
     required String endDate,
-    required String details,
+    required Widget details,
     required String webURL,
   }) {
     return Column(
@@ -92,11 +101,15 @@ class _ResumeItemState extends State<ResumeItem> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-                height: 100,
-                width: 100,
-                child: Image.asset(
-                  'headshot.jpeg',
-                )),
+              height: 100,
+              width: 100,
+              child: Image.asset(
+                logoName,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
             Column(
               //mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +131,7 @@ class _ResumeItemState extends State<ResumeItem> {
           ],
         ),
         SizedBox(
-          height: 10,
+          height: 0,
         ),
         ElevatedButton(
           onPressed: () {
@@ -130,13 +143,14 @@ class _ResumeItemState extends State<ResumeItem> {
             _showExpanded ? 'Collapse' : 'Details',
           ),
         ),
+        SizedBox(
+          height: 10,
+        ),
         ExpandedSection(
           expand: _showExpanded,
           child: Column(
             children: [
-              Text(
-                details,
-              ),
+              details,
             ],
           ),
         ),

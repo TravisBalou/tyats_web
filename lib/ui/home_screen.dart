@@ -27,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     double _phoneHeight = MediaQuery.of(context).size.height * 0.8;
-    double _phoneWidth = MediaQuery.of(context).size.width * 0.5;
+    // double _phoneWidth = MediaQuery.of(context).size.width * 0.5;
+    // print(_phoneWidth);
+    double _phoneWidth =
+        _setPhoneWidth(MediaQuery.of(context).size.width * 0.5);
     print(_phoneWidth);
 
     PhoneSize _phoneSize = PhoneSize(width: _phoneWidth, height: _phoneHeight);
@@ -41,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(
           child: Container(
             height: 812,
-            width: _setPhoneWidth(_phoneWidth),
+            width: _phoneWidth,
             clipBehavior: Clip.none,
             decoration: ShapeDecoration(
               color: Colors.white,
@@ -105,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   double _setPhoneWidth(double currentWidth) {
-    return currentWidth > 366 ? currentWidth : 366;
+    return currentWidth > 400 ? currentWidth : 400;
   }
 
   Widget hamburger(BuildContext context) {
