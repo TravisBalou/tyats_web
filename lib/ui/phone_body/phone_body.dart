@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tyats_web/ui/home_screen.dart';
+import 'package:tyats_web/ui/phone_body/find_me/find_me_body.dart';
 import 'package:tyats_web/ui/phone_body/projects/projects_body.dart';
 import 'package:tyats_web/ui/phone_body/resume/resume_body.dart';
 
@@ -17,8 +18,8 @@ class PhoneBody extends StatelessWidget {
       case MenuActions.resume:
         return ResumeBody();
         break;
-      case MenuActions.linkedin:
-        return Text('LinedIn');
+      case MenuActions.findME:
+        return FindMeBody();
         break;
     }
   }

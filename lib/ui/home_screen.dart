@@ -6,7 +6,7 @@ import 'package:tyats_web/ui/phone_body/phone_body.dart';
 import 'package:provider/provider.dart';
 
 enum MenuActions {
-  linkedin,
+  findME,
   projects,
   resume,
 }
@@ -128,8 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
           value: MenuActions.resume,
         ),
         const PopupMenuItem(
-          child: Text('LinkedIn'),
-          value: MenuActions.linkedin,
+          child: Text('Find Me'),
+          value: MenuActions.findME,
         ),
       ],
       onSelected: (MenuActions result) {
@@ -150,11 +150,11 @@ class _HomeScreenState extends State<HomeScreen> {
               });
             }
             break;
-          case MenuActions.linkedin:
+          case MenuActions.findME:
             {
               print(result);
               setState(() {
-                _actionToPass = MenuActions.linkedin;
+                _actionToPass = MenuActions.findME;
               });
             }
             break;
