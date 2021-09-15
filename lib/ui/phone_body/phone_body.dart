@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tyats_web/ui/home_screen.dart';
 import 'package:tyats_web/ui/phone_body/projects/projects_body.dart';
+import 'package:tyats_web/ui/phone_body/resume/resume_body.dart';
 
 class PhoneBody extends StatelessWidget {
   final MenuActions action;
@@ -14,7 +15,7 @@ class PhoneBody extends StatelessWidget {
         return ProjectBody();
         break;
       case MenuActions.resume:
-        return Text('Resume');
+        return ResumeBody();
         break;
       case MenuActions.linkedin:
         return Text('LinedIn');
