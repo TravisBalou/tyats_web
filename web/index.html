@@ -28,6 +28,23 @@
       });
     }
   </script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script>
+      var firebaseConfig = {
+        apiKey: "...",
+        authDomain: "tyats-web.firebaseapp.com",
+        databaseURL: "https://tyats-web.firebaseio.com",
+        projectId: "tyats-web",
+        storageBucket: "tyats-web.appspot.com",
+        messagingSenderId: "...",
+        appId: "1:...:web:...",
+        measurementId: "G-...",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
