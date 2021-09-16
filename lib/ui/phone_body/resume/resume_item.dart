@@ -131,16 +131,19 @@ class _ResumeItemState extends State<ResumeItem> {
           ],
         ),
         SizedBox(
-          height: 0,
+          height: 10,
         ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              _showExpanded = !_showExpanded;
-            });
-          },
-          child: Text(
-            _showExpanded ? 'Collapse' : 'Details',
+        Align(
+          alignment: Alignment.centerLeft,
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _showExpanded = !_showExpanded;
+              });
+            },
+            child: Text(
+              _showExpanded ? 'Collapse' : 'Details',
+            ),
           ),
         ),
         SizedBox(
