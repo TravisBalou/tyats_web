@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tyats_web/models/dart/ui_models.dart';
+import 'dart:html' as html;
 
 class FindMeBody extends StatelessWidget {
   const FindMeBody({Key? key}) : super(key: key);
@@ -28,10 +30,26 @@ class FindMeBody extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    'test',
+                  ElevatedButton.icon(
+                    onPressed: () => html.window.open(
+                        'https://www.linkedin.com/in/travisyatsko/', 'new tab'),
+                    icon: Icon(FontAwesomeIcons.linkedin),
+                    label: Text(
+                      'LinkedIn',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () => html.window
+                        .open('https://github.com/TravisBalou', 'new tab'),
+                    icon: Icon(FontAwesomeIcons.githubSquare),
+                    label: Text(
+                      'GitHub',
+                    ),
                   ),
                 ],
               ),
