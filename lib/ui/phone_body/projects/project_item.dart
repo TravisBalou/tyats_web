@@ -82,7 +82,7 @@ class _ProjectItemState extends State<ProjectItem> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: Image.asset(
-                    imageName,
+                    'assets/' + imageName,
                     fit: BoxFit.fitHeight,
                   ),
                 ),

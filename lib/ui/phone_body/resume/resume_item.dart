@@ -104,7 +104,7 @@ class _ResumeItemState extends State<ResumeItem> {
               height: 100,
               width: 100,
               child: Image.asset(
-                logoName,
+                'assets/' + logoName,
               ),
             ),
             SizedBox(
