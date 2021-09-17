@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:tyats_web/models/dart/ui_models.dart';
 import 'dart:html' as html;
 
+import 'package:tyats_web/ui/phone_body/find_me/find_me_item.dart';
+
 class FindMeBody extends StatelessWidget {
   const FindMeBody({Key? key}) : super(key: key);
 
@@ -32,24 +34,20 @@ class FindMeBody extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () => html.window.open(
-                        'https://www.linkedin.com/in/travisyatsko/', 'new tab'),
-                    icon: Icon(FontAwesomeIcons.linkedin),
-                    label: Text(
-                      'LinkedIn',
-                    ),
+                  FindMeItem(
+                    social: 'LinkedIn',
+                    socialIcon: FontAwesomeIcons.linkedin,
+                    socialURL: 'https://www.linkedin.com/in/travisyatsko/',
+                    buttonColor: Color(0xff0072b1),
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () => html.window
-                        .open('https://github.com/TravisBalou', 'new tab'),
-                    icon: Icon(FontAwesomeIcons.githubSquare),
-                    label: Text(
-                      'GitHub',
-                    ),
+                  FindMeItem(
+                    social: 'GitHub',
+                    socialIcon: FontAwesomeIcons.githubSquare,
+                    buttonColor: Color(0xff333333),
+                    socialURL: 'https://github.com/TravisBalou',
                   ),
                 ],
               ),

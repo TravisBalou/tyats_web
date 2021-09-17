@@ -35,73 +35,92 @@ class _HomeScreenState extends State<HomeScreen> {
 
     PhoneSize _phoneSize = PhoneSize(width: _phoneWidth, height: _phoneHeight);
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent.shade200,
+      backgroundColor: Colors.black,
       body: Provider.value(
         value: PhoneSize(width: _phoneWidth, height: _phoneHeight),
         // create: (context) {
         //   return PhoneSize(width: _phoneWidth, height: _phoneHeight);
         // },
-        child: Center(
-          child: Container(
-            height: 812,
-            width: _phoneWidth,
-            clipBehavior: Clip.none,
-            decoration: ShapeDecoration(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: _phoneColor, width: 20),
-                borderRadius: BorderRadius.all(Radius.circular(40)),
+        child: Stack(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              child: Image.asset(
+                'assets/bkgrd.jpg',
+                fit: BoxFit.fitHeight,
               ),
             ),
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    clipBehavior: Clip.none,
-                    height: MediaQuery.of(context).size.height * 0.03,
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    decoration: ShapeDecoration(
-                      color: _phoneColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          bottom: Radius.circular(15),
+            Center(
+              child: Container(
+                height: 812,
+                width: _phoneWidth,
+                clipBehavior: Clip.none,
+                decoration: ShapeDecoration(
+                  shadows: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.4),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: _phoneColor, width: 20),
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        clipBehavior: Clip.none,
+                        height: MediaQuery.of(context).size.height * 0.03,
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        decoration: ShapeDecoration(
+                          color: _phoneColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              bottom: Radius.circular(15),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
                         children: [
-                          SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child: Image.asset(
-                                'assets/headshot.jpeg',
-                                fit: BoxFit.fitWidth,
-                                alignment: Alignment.center,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: Image.asset(
+                                    'assets/headshot.jpeg',
+                                    fit: BoxFit.fitWidth,
+                                    alignment: Alignment.center,
+                                  ),
+                                ),
                               ),
-                            ),
+                              hamburger(context),
+                            ],
                           ),
-                          hamburger(context),
+                          PhoneBody(
+                            action: _actionToPass,
+                          ),
                         ],
                       ),
-                      PhoneBody(
-                        action: _actionToPass,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
