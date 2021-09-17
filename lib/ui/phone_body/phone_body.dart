@@ -4,6 +4,8 @@ import 'package:tyats_web/ui/phone_body/find_me/find_me_body.dart';
 import 'package:tyats_web/ui/phone_body/projects/projects_body.dart';
 import 'package:tyats_web/ui/phone_body/resume/resume_body.dart';
 
+import '../navigation_actions.dart';
+
 class PhoneBody extends StatelessWidget {
   final MenuActions action;
 
