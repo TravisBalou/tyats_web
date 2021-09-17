@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:tyats_web/models/dart/ui_models.dart';
-import 'package:tyats_web/ui/phone_body/resume/resume_item.dart';
+import 'package:tyats_web/ui/phone_body/resume/resume_list_builder.dart';
+import 'package:tyats_web/utilities/responsive_widget.dart';
 
 class ResumeBody extends StatefulWidget {
   const ResumeBody({Key? key}) : super(key: key);
@@ -13,10 +15,7 @@ class ResumeBody extends StatefulWidget {
 class _ResumeBodyState extends State<ResumeBody> {
   @override
   Widget build(BuildContext context) {
-    //PhoneSize phoneSize = context.watch<PhoneSize>();
-    //print(phoneSize.height.toString());
     return Column(
-      //mainAxisSize: MainAxisSize.max,
       children: [
         Text(
           'Resume',
@@ -25,34 +24,18 @@ class _ResumeBodyState extends State<ResumeBody> {
         SizedBox(
           height: 10,
         ),
-        Consumer<PhoneSize>(
-            builder: (BuildContext context, PhoneSize phoneSize, child) {
-          print(phoneSize.height.toString());
-          return Container(
-            height: phoneSize.height * 0.78,
-            width: phoneSize.width,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ResumeItem(
-                    resumeEntry: ResumeEntry.humetrix,
-                  ),
-                  ResumeItem(
-                    resumeEntry: ResumeEntry.balou,
-                  ),
-                  ResumeItem(
-                    resumeEntry: ResumeEntry.vanScoyoc,
-                  ),
-                  ResumeItem(
-                    resumeEntry: ResumeEntry.susanDavis,
-                  ),
-                ],
-              ),
-            ),
-          );
-        })
+        ResponsiveWidget.isSmallScreen(context)
+            ? ResumeListBuilder(
+                height: MediaQuery.of(context).size.height * 0.86,
+                width: MediaQuery.of(context).size.width)
+            : Consumer<PhoneSize>(
+                builder: (BuildContext context, PhoneSize phoneSize, child) {
+                print(phoneSize.height.toString());
+                return ResumeListBuilder(
+                  width: phoneSize.width,
+                  height: phoneSize.height * 0.78,
+                );
+              }),
       ],
     );
   }

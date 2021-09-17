@@ -1,7 +1,10 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tyats_web/ui/home_screen.dart';
+import 'package:tyats_web/ui/home_screen_large.dart';
+import 'package:tyats_web/ui/navigation_actions.dart';
+import 'package:tyats_web/ui/phone_body/home_screen_small.dart';
+import 'package:tyats_web/utilities/responsive_widget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +44,10 @@ class _MyAppState extends State<MyApp> {
               primarySwatch: Colors.blue,
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            home: HomeScreen(title: 'Travis Yatsko'),
+            home: ResponsiveWidget(
+              largeScreen: HomeScreenlarge(title: 'Travis Yatsko'),
+              smallScreen: HomeScreenSmall(title: 'Travis Yatsko'),
+            ),
           );
         }
 

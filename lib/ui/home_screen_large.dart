@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tyats_web/models/dart/ui_models.dart';
-import 'package:tyats_web/ui/home_screen.dart';
-import 'package:tyats_web/ui/phone_body/phone_body.dart';
 import 'package:provider/provider.dart';
 
 import 'navigation_actions.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key, required this.title}) : super(key: key);
+class HomeScreenlarge extends StatefulWidget {
+  HomeScreenlarge({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenlargeState createState() => _HomeScreenlargeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenlargeState extends State<HomeScreenlarge> {
   Color _phoneColor = Colors.black87;
   MenuActions _actionToPass = MenuActions.projects;
 
@@ -34,9 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       body: Provider.value(
         value: PhoneSize(width: _phoneWidth, height: _phoneHeight),
-        // create: (context) {
-        //   return PhoneSize(width: _phoneWidth, height: _phoneHeight);
-        // },
         child: Stack(
           children: [
             Container(

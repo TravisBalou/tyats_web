@@ -29,6 +29,6 @@ class ResponsiveWidget extends StatelessWidget {
 
   //Small screen is any screen whose width is less than 800 pixels
   static bool isSmallScreen(BuildContext context) {
-    return MediaQuery.of(context).size.width < 500;
+    return MediaQuery.of(context).size.width <= 500;
   }
 }
