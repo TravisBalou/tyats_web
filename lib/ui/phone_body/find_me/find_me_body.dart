@@ -47,7 +47,7 @@ class FindMeBody extends StatelessWidget {
                     social: 'GitHub',
                     socialIcon: FontAwesomeIcons.githubSquare,
                     buttonColor: Color(0xff333333),
-                    socialURL: 'https://github.com/TravisBalou',
+                    socialURL: 'https://github.com/TravisY',
                   ),
                 ],
               ),
